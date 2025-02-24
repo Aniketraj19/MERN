@@ -1,0 +1,11 @@
+1. **Hashing**: A one-way process where data is converted into a fixed-length string (hash). It cannot be reversed to the original form. Hashing is commonly used to store sensitive data like passwords securely.
+
+2. **Encryption**: A reversible process where data is transformed into an unreadable format using a key. The data can be decrypted back to its original form using the same (symmetric encryption) or a corresponding key (asymmetric encryption). Encryption ensures data confidentiality.
+
+3. **JWT Encoding**: JWTs are encoded (using Base64), not encrypted, meaning their contents are human-readable if decoded. However, they are **signed** to ensure integrity and authenticity.
+
+4. **Tamper-Proof JWTs**: When a JWT is created, a **signature** is generated using the token's header, payload, and a secret key (or private key). This signature is stored in the token.
+- When the server receives a JWT, it recomputes the signature using the secret key and compares it to the signature in the token.
+- If the token has been tampered with (e.g., payload modified), the recomputed signature won't match the stored one, and the server will reject the token.
+
+5. **Short Mechanism Summary**: The signature ensures that any tampering with the token will invalidate it because the server will detect a mismatch when recomputing the signature. This makes JWTs tamper-proof but not confidential unless encrypted.

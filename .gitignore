@@ -1,0 +1,43 @@
+# 🚀 Node.js
+node_modules/
+**/node_modules/
+
+/week2/expressClass2.5
+
+# 🛠️ Environment Variables
+.env
+.env.local
+.env.*.local
+
+# 📦 Build Outputs
+dist/
+build/
+out/
+
+# 🔍 Logs and Debugging
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 🔧 IDE and Editor Configs
+.vscode/
+.idea/
+*.code-workspace
+
+# 💾 System Files
+.DS_Store
+Thumbs.db
+
+# ⚙️ Dependency Lock Files (optional)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 📝 Optional: Ignore production build
+/.next
+/.vercel
+/.netlify
+
+# ⚙️ Optional: Ignore coverage reports
+coverage/

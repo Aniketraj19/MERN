@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Interest Calculator</title>
+  </head>
+  <body>
+    <script>
+      let timeout;
+      function siCalcDenounced() {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+          siCalc();
+        }, 1000);
+      }
+
+      async function siCalc() {
+        const principle = document.getElementById("principle").value;
+        const time = document.getElementById("time").value;
+        const rate = document.getElementById("rate").value;
+
+        const response = await fetch(
+          "http://localhost:3000/?principle=" +
+            principle +
+            "&rate=" +
+            rate +
+            "&time=" +
+            time
+        );
+        const ans = await response.text();
+        document.getElementById("answer").innerHTML = ans;
+      }
+    </script>
+    <input
+      type="text"
+      oninput="siCalcDenounced()"
+      placeholder="Enter amount"
+      id="principle"
+    /><br />
+    <input
+      type="text"
+      oninput="siCalcDenounced()"
+      placeholder="Enter time in years"
+      id="time"
+    /><br />
+    <input
+      type="text"
+      oninput="siCalcDenounced()"
+      placeholder="Enter rate"
+      id="rate"
+    /><br />
+    <!-- <button onclick="siCalc()">Calculate</button><br /> -->
+    <div id="answer"></div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="1st number" id="input1" /><br />
+    <input type="text" placeholder="2st number" id="input2" /><br />
+    <button onclick="populateDiv()">calculate</button><br />
+    <div id="finalSum"></div>
+
+    <script>
+      function populateDiv() {
+        var num1 = document.getElementById("input1").value;
+        var num2 = document.getElementById("input2").value;
+        var num3 = parseInt(num1) + parseInt(num2);
+        document.getElementById("finalSum").innerHTML =
+          "sum of 2 numbers = " + num3;
+      }
+    </script>
+  </body>
+</html>

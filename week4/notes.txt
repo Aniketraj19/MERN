@@ -1,0 +1,25 @@
+ function markAsDone(id) {
+        console.log("hello");
+      }
+      function createDiv(title, decription, id) {
+        const child = document.createElement("div");
+        const grandChild1 = document.createElement("div");
+        grandChild1.innerHTML = title;
+        const grandChild2 = document.createElement("div");
+        grandChild2.innerHTML = decription;
+        const grandChild3 = document.createElement("button");
+        grandChild3.innerHTML = "Mark as Done";
+        grandChild3.setAttribute("id", id);
+        grandChild3.setAttribute("onClick", markAsDone(id));
+        child.appendChild(grandChild1);
+        child.appendChild(grandChild2);
+        child.appendChild(grandChild3);
+        return child;
+      }
+      function addTodo() {
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+        document
+          .getElementById("todoDiv")
+          .appendChild(createDiv(title, description, globalId++));
+      }
