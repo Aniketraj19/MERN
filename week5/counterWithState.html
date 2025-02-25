@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter With State</title>
+  </head>
+  <body>
+    <div id="buttonDiv"></div>
+    <script>
+      // maintaining a state variable that holds the current state of the component
+      let state = {
+        counter: 0,
+      };
+      //   this updates the state of the variable
+      function buttonState() {
+        state.counter++;
+        buttonReRender();
+      }
+      // this render the component and will be taken care of when we use react
+      function buttonReRender() {
+        document.getElementById("buttonDiv").innerHTML = "";
+        const component = buttonComponent(state.counter);
+        document.getElementById("buttonDiv").appendChild(component);
+      }
+      // this is where we define the button component and this will be done in react as well
+      function buttonComponent(counter) {
+        const button = document.createElement("button");
+        button.innerHTML = `Counter is : ${counter}`;
+        button.setAttribute("onclick", "buttonState()");
+        return button;
+      }
+
+      buttonReRender();
+    </script>
+  </body>
+</html>
