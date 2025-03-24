@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function myApp() {
+        const currValue = document.getElementById("button").innerHTML;
+        const prevCounter = currValue.split(" ")[1];
+        const nextCounter = parseInt(prevCounter) + 1;
+        document.getElementById("button").innerHTML = "Counter " + nextCounter;
+      }
+    </script>
+    <button onclick="myApp()" id="button">Counter 0</button>
+  </body>
+</html>
